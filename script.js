@@ -11,6 +11,7 @@ let userMessages = []
 
 window.addEventListener("DOMContentLoaded", () => {
     insertInstructions()
+    input.value = ''
     botWritingAnimation('Hello!', 1000)
 })
 
@@ -57,7 +58,7 @@ function createMessage(text, owner, isAnimation = false) {
 }
 
 function botAnswer(userMess) {
-    const findMessage = userMessages.find(m => userMessages.length > 1 && m.user === userMess.toLowerCase())
+    const findMessage = userMessages.find(m => m.user === userMess.toLowerCase())
     const isCommand = botCommands.includes(userMess)
     if (isCommand) {
         switch (userMess) {
